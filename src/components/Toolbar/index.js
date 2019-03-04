@@ -21,6 +21,8 @@ import { NavigationActions } from "react-navigation";
 import { Styles, Color } from "@common";
 import styles from "./styles";
 const deviceWidth = Dimensions.get('window').width;
+
+import backIco from "../../../assets/icons8-back-filled-50.png"
 const Toolbar = (props) => {
 
 
@@ -34,7 +36,7 @@ const Toolbar = (props) => {
         {
           props.backButton &&
           <TouchableOpacity style={{ ...Styles.rightMedium }} onPress={props.onPressBack}>
-            <Icon name="arrow-back" style={{ color: Color.primaryText, fontSize: 30 }} />
+            <Image source={backIco} style={{ color: Color.primaryText, width: 20 , height:20 }} resizeMode={'contain'} />
           </TouchableOpacity>
         }
         {
