@@ -74,7 +74,8 @@ class Article extends Component {
 
   onValueChange(value: string) {
     this.setState({
-      selected: value
+      selected: value,
+      cari:'',
     },() => {
       this.getArticles()   
     });
@@ -226,7 +227,12 @@ class Article extends Component {
             <Button 
               primary 
               style={{height:60}}
-              onPress={() => this.getArticles()}>
+              onPress={() => {
+                this.setState({selected : 'relevance'},() => {
+                  this.getArticles()
+
+                })
+              }}>
               <Text>cari</Text>
             </Button>
    
