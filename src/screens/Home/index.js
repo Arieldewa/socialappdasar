@@ -23,9 +23,14 @@ import {
   List
 } from "native-base";
 import { Constants, Styles, Color } from "@common";
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import { Helper } from "@theme";
 import { Toolbar } from "@components";
 import styles from "./styles";
+
+import Article from "./article";
+import Book from "./book";
+import CustomTab from '../Feed/customTabBar';
 
 class Home extends Component {
 
@@ -141,11 +146,17 @@ class Home extends Component {
           <Toolbar                        
               title={'Home'}
           />
-          <Content style={{backgroundColor:Color.backgroundColor}}> 
+          {/*<Content style={{backgroundColor:Color.backgroundColor}}> 
           <View style={{ padding: 20 }}>          
-               {this.renderUserList()}     
-          </View>
-          </Content>        
+                         {this.renderUserList()}     
+                    </View>
+          </Content>       */} 
+            <ScrollableTabView renderTabBar={() => <CustomTab someProp={'here'} />}
+              style={{ backgroundColor: Color.backgroundColor }}
+            >
+              <Article tabLabel="Article" navigation={navigation} />
+              <Book tabLabel="Book" navigation={navigation} />
+            </ScrollableTabView> 
         </Container>
       );
 
